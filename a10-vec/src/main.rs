@@ -1,38 +1,24 @@
+fn average(numbers: Vec<i32>) -> f64 [
+    
+]
 
 fn main() {
-    let mut numbers = [1, 2, 3, 4, 5];
-    for number in numbers {
-        println!("{}", number);
-    }
+    // צור וקטור ריק של String
+    let mut names: Vec<String> = Vec::new();
 
-    numbers[0] = 1000;
-    println!("first number: {}", numbers[0]);
+    names.push("John".to_string());
+    names.push("Jane".to_string());
+    names.push("Jim".to_string());
+    names.push(String::from("sara"));
 
-    let arr = [10, 20, 30];
-    for i in 0..arr.len() {
-        println!("arr[{}] = {}", i, arr[i]);
-    }
+    println!("length: {}", names.len());
+    names.remove(1);
 
-    let mut arr2: [i32; 5] = [0; 5];
-    for i in 0..arr2.len() {
-        println!("arr2[{}] = {}", i, arr2[i]);
-    }
+    let first = String::from("שלום");
+    let second = String::from(" עולם");
 
-    let mut arr3 = [0; 5];
-    for i in 0..arr3.len() {
-        println!("arr3[{}] = {}", i, arr3[i]);
-    }
-
-    // 🧩 שלב 6: תרגול לתלמידים
-    // כתבו פונקציה שמקבלת מערך של 5 מספרים ומחזירה את הסכום שלהם.
-    
-    // צרו מערך של 10 מספרים ואתרו את הערך המקסימלי.
-    
-    // כתבו פונקציה שמדפיסה רק את המספרים הזוגיים במערך.
-    
-    
-
-
+    let result = first + &second;
+    println!("{}", result);
 
 }
 
