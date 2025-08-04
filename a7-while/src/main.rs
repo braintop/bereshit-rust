@@ -1,12 +1,12 @@
 
 fn main() {
-    for i in 1..=10 {
-        println!("{}", i);
+    let mut count = 0;
+    while count < 10 {
+        println!("{}", count);
+        count += 1;
     }
 
-    for i in (1..=10).rev() {
-        println!("{}", i);
-    }
+    
 }
 
 
