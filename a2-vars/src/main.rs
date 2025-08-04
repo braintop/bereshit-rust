@@ -29,8 +29,8 @@ fn main() {
     println!("Letter: {}", letter);
     println!("Message: {}", message);
 
-
-    let score = 100;     // Rust יבין שזה i32
+    let  mut score = 100;
+    score = 101;      // Rust יבין שזה i32
     let pi = 3.14;       // Rust יבין שזה f64
     let done = false;    // bool
     let initial = 'A';   // char
