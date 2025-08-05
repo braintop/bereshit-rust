@@ -1,15 +1,13 @@
 use std::io;
-
+fn create_vec(){
+    let mut numbers: Vec<i32> = Vec::new();
+    for i in 0..5 {
+        numbers.push(i*10);
+    }
+    println!("{:?}", numbers);
+}
 fn main() {
-    let mut input = String::new();
-
-    io::stdin()
-        .read_line(&mut input)
-        .expect("שגיאה בקריאת הקלט");
-
-    let num: i32 = input.trim().parse().expect("נא להזין מספר תקין");
-
-    println!("input is : {}", num);
+    create_vec();
 }
 
 
