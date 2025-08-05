@@ -1,12 +1,14 @@
 // src/main.rs
 
-mod user;           // טוען את המודול user.rs
-use user::User;     // משתמש ב־User מהמודול
+mod user; // ייבוא הקובץ user.rs
 
-fn main() {
-    let mut u = User::new("Alice".to_string());
-    u.print();
-    u.birthday();
-    u.deactivate();
-    u.print();
+use user::User;
+
+fn main() {   
+    let u = User {
+        username: String::from("alice"),
+        age: 30,
+    };
+
+    println!("User: {}, age: {}", u.username, u.age);
 }
