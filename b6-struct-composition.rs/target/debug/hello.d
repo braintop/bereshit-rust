@@ -1,0 +1,1 @@
+/Users/braintop/Desktop/rust/b6-struct-composition.rs/target/debug/hello: /Users/braintop/Desktop/rust/b6-struct-composition.rs/src/main.rs /Users/braintop/Desktop/rust/b6-struct-composition.rs/src/user.rs /Users/braintop/Desktop/rust/b6-struct-composition.rs/src/worker.rs
