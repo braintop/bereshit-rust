@@ -9,7 +9,7 @@ pub struct Car {
 impl Car {
     pub fn new(brand: String, model: String, owner: Person) -> Self {
         Car { brand, model, owner }
-    }
+    }//
 
     pub fn change_owner(&mut self, new_owner: Person) {
         self.owner = new_owner;
