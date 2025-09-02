@@ -3,7 +3,11 @@
 fn main() {
 
 
-    let mut words = vec!["rust", "is", "great"];
-    words.sort_by(|a, b| a.len().cmp(&b.len()));
-    println!("{:?}", words); // ["is", "rust", "great"]
-        }
+    let numbers = vec![1, 2, 3];
+    let doubled: Vec<i32> = numbers.iter().map(|x| x * 2).collect();
+    println!("{:?}", doubled); // [2, 4, 6]
+        
+
+
+
+    }
