@@ -18,8 +18,10 @@ async fn get_all_persons() -> impl Responder {
 
 #[actix_web::main]
 async fn main() ->std::io::Result<()> {
-    HttpServer::new(|| App::new().service(hello).service(get_all_persons))
-        .bind("127.0.0.1:8080")?
+    HttpServer::new(|| App::new()
+    .service(hello)
+    .service(get_all_persons))
+        .bind("127.0.0.1:3000")?
         .run()
         .await
 }
