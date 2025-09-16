@@ -8,8 +8,8 @@ pub struct AppState {
 
 pub async fn create_item(data: web::Data<AppState>, item: web::Json<Item>) -> impl Responder {
     let mut items = data.items.lock().unwrap();
-    let mut new_item = item.into_inner();
-    new_item.id = uuid::Uuid::new_v4().to_string();
+    let item_data = item.into_inner();
+    let new_item = Item::new(item_data.title, item_data.description);
     items.push(new_item.clone());
     HttpResponse::Created().json(new_item)
 }
