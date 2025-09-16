@@ -1,6 +1,7 @@
 use actix_web::{web, App, HttpServer};
 use crate::controllers::item_controller::AppState;
 use crate::routes::items::item_routes;
+use crate::routes::products::product_routes;
 
 mod models;
 mod controllers;
@@ -11,6 +12,7 @@ mod routes;
 async fn main() -> std::io::Result<()> {
     let app_state = web::Data::new(AppState {
         items: std::sync::Mutex::new(vec![]),
+        products: std::sync::Mutex::new(vec![]),
     });
 
     println!("🚀 Server running at http://127.0.0.1:3002");
@@ -19,6 +21,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(app_state.clone())
             .service(item_routes())
+            .service(product_routes())
     })
     .bind(("127.0.0.1", 3002))?
     .run()

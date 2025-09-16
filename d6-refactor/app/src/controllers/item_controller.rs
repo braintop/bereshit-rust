@@ -1,9 +1,11 @@
 use actix_web::{web, HttpResponse, Responder};
 use std::sync::Mutex;
 use crate::models::item::Item;
+use crate::models::product::Product;
 
 pub struct AppState {
     pub items: Mutex<Vec<Item>>,
+    pub products: Mutex<Vec<Product>>,
 }
 
 pub async fn create_item(data: web::Data<AppState>, item: web::Json<Item>) -> impl Responder {
