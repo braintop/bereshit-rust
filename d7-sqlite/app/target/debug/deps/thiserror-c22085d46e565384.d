@@ -1,0 +1,14 @@
+/Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/deps/thiserror-c22085d46e565384.d: /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/build/thiserror-220e440ce1ac736f/out/private.rs
+
+/Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/deps/libthiserror-c22085d46e565384.rlib: /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/build/thiserror-220e440ce1ac736f/out/private.rs
+
+/Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/deps/libthiserror-c22085d46e565384.rmeta: /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/build/thiserror-220e440ce1ac736f/out/private.rs
+
+/Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs:
+/Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs:
+/Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs:
+/Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs:
+/Users/braintop/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs:
+/Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/build/thiserror-220e440ce1ac736f/out/private.rs:
+
+# env-dep:OUT_DIR=/Users/braintop/Desktop/jango/bereshit-rust/d7-sqlite/app/target/debug/build/thiserror-220e440ce1ac736f/out

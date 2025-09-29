@@ -23,29 +23,19 @@ async fn init_db() -> Result<SqlitePool, sqlx::Error> {
     let database_url = "sqlite:src/mydb.db";
     let pool = SqlitePool::connect(database_url).await?;
     
-    // Check if cities table exists and create if needed
-    match sqlx::query("SELECT name FROM sqlite_master WHERE type='table' AND name='cities'")
-        .fetch_optional(&pool)
-        .await?
-    {
-        Some(_) => {
-            println!("✅ Cities table already exists in database");
-        }
-        None => {
-            println!("📋 Creating cities table...");
-            sqlx::query(
-                r#"
-                CREATE TABLE cities (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL
-                )
-                "#,
-            )
-            .execute(&pool)
-            .await?;
-            println!("✅ Cities table created successfully");
-        }
-    }
+    // Create cities table if it doesn't exist
+    println!("📋 Creating cities table if not exists...");
+    sqlx::query(
+        r#"
+        CREATE TABLE IF NOT EXISTS cities (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL
+        )
+        "#,
+    )
+    .execute(&pool)
+    .await?;
+    println!("✅ Cities table ready");
     
     Ok(pool)
 }
