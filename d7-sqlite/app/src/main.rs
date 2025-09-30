@@ -31,7 +31,7 @@ async fn init_db() -> Result<SqlitePool, sqlx::Error> {
         "#,
     )
     .execute(&pool)
-    .await?;
+    .await?; 
 
     Ok(pool)
 }
