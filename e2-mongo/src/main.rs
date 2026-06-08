@@ -1,15 +1,35 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get,delete, post, web, App, HttpResponse, HttpServer, Responder};
 use dotenvy::dotenv;
+
 use mongodb::{
-    bson::{doc, Document},
+    bson::{doc, oid::ObjectId},
     options::{ClientOptions, ServerApi, ServerApiVersion},
     Client, Collection,
 };
 use serde::{Deserialize, Serialize};
 use std::env;
 
+// Serialize ObjectId to the HTTP/JSON response as a plain hex string
+// (e.g. "507f1f77bcf86cd799439011") instead of {"$oid": "..."},
+// so the frontend can pass it straight back to DELETE /todos/{id}.
+fn serialize_oid_as_hex<S>(id: &Option<ObjectId>, s: S) -> Result<S::Ok, S::Error>
+where
+    S: serde::Serializer,
+{
+    match id {
+        Some(oid) => s.serialize_str(&oid.to_hex()),
+        None => s.serialize_none(),
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 struct Todo {
+    #[serde(
+        rename = "_id",
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "serialize_oid_as_hex"
+    )]
+    id: Option<ObjectId>,
     message: String,
     done: bool,
 }
@@ -17,6 +37,12 @@ struct Todo {
 #[derive(Debug, Deserialize)]
 struct CreateTodoRequest {
     message: String,
+}
+
+#[derive(Debug, Deserialize)]
+struct UpdateTodoRequest {
+    message: String,
+    done: bool,
 }
 
 struct AppState {
@@ -33,21 +59,41 @@ async fn shmuel() -> impl Responder {
     HttpResponse::Ok().body("Smuael  is good man")
 }
 
+#[delete("/todos/{id}")]
+async fn delete_todo(
+    data: web::Data<AppState>,
+    path: web::Path<String>,
+) -> impl Responder {
+    let id = path.into_inner();
+
+    let oid = match ObjectId::parse_str(&id) {
+        Ok(oid) => oid,
+        Err(_) => return HttpResponse::BadRequest().body("Invalid id"),
+    };
+
+    match data.todos_collection.delete_one(doc! { "_id": oid }).await {
+        Ok(result) if result.deleted_count == 1 => HttpResponse::Ok().body("Deleted"),
+        Ok(_) => HttpResponse::NotFound().body("Todo not found"),
+        Err(err) => HttpResponse::InternalServerError().body(err.to_string()),
+    }
+}
 
 #[post("/todos")]
 async fn create_todo(
     data: web::Data<AppState>,
     body: web::Json<CreateTodoRequest>,
 ) -> impl Responder {
-    let todo = Todo {
+    let mut todo = Todo {
+        id: None,
         message: body.message.clone(),
         done: false,
     };
 
-    let result = data.todos_collection.insert_one(&todo).await;
-
-    match result {
-        Ok(_) => HttpResponse::Ok().json(todo),
+    match data.todos_collection.insert_one(&todo).await {
+        Ok(result) => {
+            todo.id = result.inserted_id.as_object_id();
+            HttpResponse::Ok().json(todo)
+        }
         Err(err) => HttpResponse::InternalServerError().body(err.to_string()),
     }
 }
@@ -108,6 +154,7 @@ async fn main() -> mongodb::error::Result<()> {
             .app_data(app_state.clone())
             .service(home)
             .service(shmuel)
+            .service(delete_todo)
             .service(create_todo)
             .service(get_all_todos)
     })
