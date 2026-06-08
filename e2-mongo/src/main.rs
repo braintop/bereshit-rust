@@ -1,3 +1,4 @@
+use actix_cors::Cors;
 use actix_web::{get,delete, post, web, App, HttpResponse, HttpServer, Responder};
 use dotenvy::dotenv;
 
@@ -150,7 +151,12 @@ async fn main() -> mongodb::error::Result<()> {
     println!("Server running on http://127.0.0.1:8080");
 
     HttpServer::new(move || {
+        // Dev-only: allow any origin so the browser frontend can call the API.
+        // Tighten this (e.g. .allowed_origin("http://localhost:5173")) for production.
+        let cors = Cors::permissive();
+
         App::new()
+            .wrap(cors)
             .app_data(app_state.clone())
             .service(home)
             .service(shmuel)
