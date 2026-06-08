@@ -15,6 +15,11 @@ async fn get_all_persons() -> impl Responder {
     // The function returns a string that implements Responder trait
     "persons .....!"
 }
+#[get("/shmuel")]
+async fn get_all_persons() -> impl Responder {
+    // The function returns a string that implements Responder trait
+    "shmuel hamelech .....!"
+}
 
 #[actix_web::main]
 async fn main() ->std::io::Result<()> {

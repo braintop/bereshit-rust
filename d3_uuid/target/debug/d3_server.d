@@ -1,1 +1,1 @@
-C:\Users\asafa\OneDrive\Desktop\temp\bereshit-rust\d3_server\target\debug\d3_server.exe: C:\Users\asafa\OneDrive\Desktop\temp\bereshit-rust\d3_server\src\main.rs
+/Users/braintopltd/Desktop/heshbon/bereshit-rust/d3_uuid/target/debug/d3_server: /Users/braintopltd/Desktop/heshbon/bereshit-rust/d3_uuid/src/main.rs

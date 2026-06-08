@@ -32,7 +32,7 @@ async fn main() -> std::io::Result<()> {
         App::new().service(get_item)
     })
     // Bind the server to local address 127.0.0.1 on port 8080
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 3001))?
     // Run the server
     .run()
     .await

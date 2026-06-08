@@ -1,1 +1,1 @@
-C:\Users\asafa\OneDrive\Desktop\temp\bereshit-rust\d4_server\target\debug\d4_server.exe: C:\Users\asafa\OneDrive\Desktop\temp\bereshit-rust\d4_server\src\main.rs
+/Users/braintopltd/Desktop/heshbon/bereshit-rust/d4_serde/target/debug/d4_server: /Users/braintopltd/Desktop/heshbon/bereshit-rust/d4_serde/src/main.rs
